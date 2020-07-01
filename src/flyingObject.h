@@ -9,7 +9,7 @@ class FlyingObject
 {
 protected:
     Point point;
-    Velocity velocity
+    Velocity velocity;
     bool alive;
 public:
     FlyingObject() : point( Point() ) , velocity( Velocity() ) , alive( true ) {}
