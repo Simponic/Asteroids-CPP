@@ -26,6 +26,7 @@ private:
     vector<Rock *> rocks;
     vector<Bullet *> bullets;
     Ship* ship;
+	int level = 0;
 
     float getClosestDistance( const FlyingObject &obj1 , const FlyingObject &obj2 ) const;
 

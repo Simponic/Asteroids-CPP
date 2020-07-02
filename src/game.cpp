@@ -26,7 +26,7 @@ Game :: Game ( const Point &tl , const Point &br ) : topLeft ( tl ) , bottomRigh
 vector<Rock *> Game :: createRocks()
 {
    vector<Rock *> initRocks;
-   for ( int i = 0; i < random ( 5 , 8 ); i++ )
+   for ( int i = 0; i < random ( 5 + 2 * this->level , 8 + 2 * this->level ); i++ )
    {
       Point rockPoint = Point ( random( -190 , 190 ) , random ( -190 , 190 ) );
       Velocity velocity;
@@ -136,14 +136,16 @@ void Game :: cleanUpZombies()
          bullets.erase( bullets.begin() + i );
       }
    }
-   for ( int i = 0; i < rocks.size(); i++ )
-   {
-      if ( !rocks[i]->isAlive() )
-      {
-         delete rocks[i];
-         rocks[i] = NULL;
-         rocks.erase( rocks.begin() + i );
-      }
+   if (rocks.size() > 0) {
+	  for ( int i = 0; i < rocks.size(); i++ )
+	  {
+		  if ( !rocks[i]->isAlive() )
+		  {
+			 delete rocks[i];
+			 rocks[i] = NULL;
+			 rocks.erase( rocks.begin() + i );
+		  }
+	  }
    }
 }
 
@@ -209,6 +211,14 @@ void Game :: draw ( const Interface &ui )
    drawBullets();
    drawNumber ( Point ( -170 , 170 ) , (int) ship->getFuel() );
    drawText ( Point ( -170 , 180 ) , "FUEL:" );
+   drawNumber ( Point (-170, 130) , (int) level);
+   drawText ( Point(-170, 140), "LEVEL:");
+   if (!ship->isAlive()) {
+      drawText( Point ( -90 , 0 ) , "Play again? (space to continue)");
+   }
+   if (rocks.size() == 0 && ship->isAlive()) {
+      drawText( Point ( -90 , 0 ) , "Press space to continue to next level ");
+   } 
 }
 
 // Draw rocks
@@ -241,7 +251,7 @@ void Game :: drawBullets()
 // Handle in-game input
 void Game::handleInput(const Interface & ui)
 {
-    if ( ship->isAlive() )
+    if ( ship->isAlive() && rocks.size() > 0 )
     {
         if ( ui.isUp() )
         {
@@ -274,5 +284,18 @@ void Game::handleInput(const Interface & ui)
             ship->setThrusting ( false );
         }
     }
-
+	else if ( !ship->isAlive() && rocks.size() > 0){
+		if ( ui.isSpace() ) {
+			rocks = createRocks();
+		    ship = new Ship ( Point() );	
+			level = 0;
+		}
+	}
+	else if ( ship->isAlive() && rocks.size() == 0) {
+		if ( ui.isSpace() ) {
+			rocks = createRocks();
+			ship = new Ship ( Point() );
+			level++;
+		}
+	}
 }
