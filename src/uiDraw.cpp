@@ -34,8 +34,8 @@
 #include <math.h>
 #endif // _WIN32
 
-#include "point.h"
-#include "uiDraw.h"
+#include "../include/point.h"
+#include "../include/uiDraw.h"
 
 using namespace std;
 

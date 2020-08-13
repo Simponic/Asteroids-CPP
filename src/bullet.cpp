@@ -1,5 +1,5 @@
-#include "bullet.h"
-#include "ship.h"
+#include "../include/bullet.h"
+#include "../include/ship.h"
 #include <cmath>
 
 #define M_PI 3.14159265

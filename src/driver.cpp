@@ -7,8 +7,8 @@
  *  that specifies what methods of the game class are
  *  called each time through the game loop.
  ******************************************************/
-#include "game.h"
-#include "uiInteract.h"
+#include "../include/game.h"
+#include "../include/uiInteract.h"
 
 /*************************************
  * All the interesting work happens here, when

@@ -5,9 +5,9 @@
  *
  *********************************************************************/
 
-#include "game.h"
-#include "uiDraw.h"
-#include "bullet.h"
+#include "../include/game.h"
+#include "../include/uiDraw.h"
+#include "../include/bullet.h"
 // These are needed for the getClosestDistance function...
 #include <limits>
 #include <iostream>

@@ -1,4 +1,4 @@
-#include "flyingObject.h"
+#include "../include/flyingObject.h"
 #include <iostream>
 
 // Advance flyingobjects

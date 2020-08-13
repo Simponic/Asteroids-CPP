@@ -38,8 +38,8 @@
 #include <math.h>
 #endif // _WIN32
 
-#include "uiInteract.h"
-#include "point.h"
+#include "../include/uiInteract.h"
+#include "../include/point.h"
 
 using namespace std;
 

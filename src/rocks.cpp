@@ -1,5 +1,5 @@
-#include "rocks.h"
-#include "uiDraw.h"
+#include "../include/rocks.h"
+#include "../include/uiDraw.h"
 #include <cmath>
 #define M_PI 3.14159265
 

@@ -8,9 +8,9 @@
  *    the location and the bounds.
  ************************************************************************/
 
-#include "point.h"
+#include "../include/point.h"
 #include <cassert>
-#include "uiDraw.h"
+#include "../include/uiDraw.h"
 using namespace std;
 /******************************************
  * POINT : CONSTRUCTOR WITH X,Y

@@ -1,5 +1,5 @@
-#include "ship.h"
-#include "bullet.h"
+#include "../include/ship.h"
+#include "../include/bullet.h"
 
 #include <cmath>
 

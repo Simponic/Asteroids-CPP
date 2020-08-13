@@ -1,4 +1,4 @@
-#include "velocity.h"
+#include "../include/velocity.h"
 
 // Default velocity constructor
 Velocity :: Velocity ()
@@ -7,7 +7,7 @@ Velocity :: Velocity ()
    setDy ( 0.0 );
 }
 
-// Velocity constructor
+// Velocity constructor with data
 Velocity :: Velocity ( float dx , float dy )
 {
    setDx ( dx );
